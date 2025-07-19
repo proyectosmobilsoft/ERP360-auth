@@ -34,9 +34,12 @@ The application follows a full-stack TypeScript architecture with clear separati
 
 ### Frontend Architecture
 - **Component Structure**: Modular auth components in `/client/src/components/auth/`
+  - `LoginForm`, `RegisterForm`, `ForgotPasswordForm`: Commercial-grade authentication forms
+  - `SimpleLogin`: Streamlined login component for internal applications
+  - `TenantBranding`: Dynamic branding system with custom ERP360 SVG logo
 - **Routing**: Wouter for lightweight client-side routing
 - **State Management**: Zustand stores for auth state and tenant configuration
-- **UI Components**: shadcn/ui component library for consistent design system
+- **UI Components**: shadcn/ui component library with enhanced Lucide React icons
 
 ### Backend Services
 - **Memory Storage**: Development-friendly in-memory storage implementation
