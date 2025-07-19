@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Multi-tenant customizable colors */
+  --tenant-primary: hsl(207, 90%, 54%);
+  --tenant-primary-dark: hsl(213, 90%, 49%);
+  --tenant-primary-light: hsl(206, 90%, 92%);
+  --tenant-secondary: hsl(215, 16%, 26%);
+  --tenant-surface: hsl(0, 0%, 100%);
+  --tenant-background: hsl(210, 22%, 98%);
+  --tenant-text-primary: hsl(215, 19%, 13%);
+  --tenant-text-secondary: hsl(215, 14%, 46%);
+  --tenant-success: hsl(122, 39%, 49%);
+  --tenant-error: hsl(4, 90%, 58%);
+  --tenant-warning: hsl(36, 100%, 50%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Tenant-specific styling classes */
+.tenant-primary {
+  background-color: var(--tenant-primary);
+}
+
+.tenant-primary-dark {
+  background-color: var(--tenant-primary-dark);
+}
+
+.tenant-primary-light {
+  background-color: var(--tenant-primary-light);
+}
+
+.tenant-secondary {
+  background-color: var(--tenant-secondary);
+}
+
+.tenant-surface {
+  background-color: var(--tenant-surface);
+}
+
+.tenant-background {
+  background-color: var(--tenant-background);
+}
+
+.text-tenant-primary {
+  color: var(--tenant-text-primary);
+}
+
+.text-tenant-secondary {
+  color: var(--tenant-text-secondary);
+}
+
+.text-tenant-success {
+  color: var(--tenant-success);
+}
+
+.text-tenant-error {
+  color: var(--tenant-error);
+}
+
+.text-tenant-warning {
+  color: var(--tenant-warning);
+}
+
+.border-tenant-primary {
+  border-color: var(--tenant-primary);
+}
+
+.ring-tenant-primary {
+  --tw-ring-color: var(--tenant-primary);
+}
+
+.focus\:ring-tenant-primary:focus {
+  --tw-ring-color: var(--tenant-primary);
+}
+
+.hover\:bg-tenant-primary-dark:hover {
+  background-color: var(--tenant-primary-dark);
+}
+
+/* Animation classes */
+.auth-slide-in {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.auth-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Loading spinner */
+.auth-spinner {
+  border: 2px solid var(--tenant-primary-light);
+  border-top: 2px solid var(--tenant-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Custom focus styles for better accessibility */
+.auth-input:focus {
+  outline: none;
+  border-color: var(--tenant-primary);
+  box-shadow: 0 0 0 3px var(--tenant-primary-light);
+}
+
+.auth-button {
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+}
+
+.auth-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+}
+
+/* Grid pattern for branding panel */
+.auth-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
