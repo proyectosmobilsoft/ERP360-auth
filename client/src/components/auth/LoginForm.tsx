@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Eye, EyeOff, Mail, ArrowRight } from 'lucide-react';
+import { Eye, EyeOff, Mail, ArrowRight, Chrome, Building } from 'lucide-react';
 import { isSSOEnabled } from '@/lib/tenantUtils';
 import { formatAuthError } from '@/lib/authUtils';
 
@@ -169,8 +169,8 @@ export function LoginForm({ tenantId, onForgotPassword }: LoginFormProps) {
               </div>
             ) : (
               <div className="flex items-center justify-center">
-                Sign In
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <Mail className="mr-2 w-4 h-4" />
+                <span>Iniciar Sesión</span>
               </div>
             )}
           </Button>
@@ -196,9 +196,9 @@ export function LoginForm({ tenantId, onForgotPassword }: LoginFormProps) {
                 variant="outline"
                 onClick={() => handleSSOLogin('google')}
                 disabled={isLoading}
-                className="flex justify-center items-center"
+                className="flex justify-center items-center hover:bg-red-50 border-gray-300"
               >
-                <div className="w-4 h-4 mr-2 bg-red-500 rounded"></div>
+                <Chrome className="w-4 h-4 mr-2 text-red-500" />
                 <span className="text-sm font-medium">Google</span>
               </Button>
             )}
@@ -208,9 +208,9 @@ export function LoginForm({ tenantId, onForgotPassword }: LoginFormProps) {
                 variant="outline"
                 onClick={() => handleSSOLogin('microsoft')}
                 disabled={isLoading}
-                className="flex justify-center items-center"
+                className="flex justify-center items-center hover:bg-blue-50 border-gray-300"
               >
-                <div className="w-4 h-4 mr-2 bg-blue-500 rounded"></div>
+                <Building className="w-4 h-4 mr-2 text-blue-600" />
                 <span className="text-sm font-medium">Microsoft</span>
               </Button>
             )}

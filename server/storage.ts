@@ -60,6 +60,19 @@ export class MemStorage implements IStorage {
   private initializeDefaultTenants() {
     const defaultTenants: Tenant[] = [
       {
+        id: "erp360",
+        name: "ERP360",
+        logo: "/assets/erp360/logo.svg",
+        primaryColor: "#2563EB",
+        secondaryColor: "#1E40AF",
+        config: {
+          welcomeMessage: "Sistema Empresarial Integrado",
+          ssoProviders: ["google", "microsoft"],
+          mfaRequired: false
+        },
+        createdAt: new Date(),
+      },
+      {
         id: "acme-corp",
         name: "ACME Corp",
         logo: "/assets/acme-corp/logo.svg",

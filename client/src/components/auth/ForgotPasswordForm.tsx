@@ -5,7 +5,7 @@ import { forgotPasswordSchema, type ForgotPasswordRequest } from '@shared/schema
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Mail, ArrowRight, CheckCircle } from 'lucide-react';
+import { Mail, ArrowRight, CheckCircle, Send, Key } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
 import { formatAuthError } from '@/lib/authUtils';
 
@@ -62,9 +62,12 @@ export function ForgotPasswordForm({ tenantId }: ForgotPasswordFormProps) {
   return (
     <div className="tenant-surface rounded-xl shadow-lg p-8 auth-slide-in">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-medium text-tenant-primary mb-2">Reset your password</h2>
+        <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+          <Key className="text-blue-600 w-8 h-8" />
+        </div>
+        <h2 className="text-2xl font-medium text-tenant-primary mb-2">Recuperar Contraseña</h2>
         <p className="text-tenant-secondary">
-          Enter your email address and we'll send you a link to reset your password.
+          Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
         </p>
       </div>
 
@@ -118,8 +121,8 @@ export function ForgotPasswordForm({ tenantId }: ForgotPasswordFormProps) {
               </div>
             ) : (
               <div className="flex items-center justify-center">
-                Send Reset Link
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <Send className="mr-2 w-4 h-4" />
+                <span>Enviar Enlace</span>
               </div>
             )}
           </Button>

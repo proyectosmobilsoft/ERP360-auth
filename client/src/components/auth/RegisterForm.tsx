@@ -6,7 +6,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Eye, EyeOff, Mail, User, ArrowRight } from 'lucide-react';
+import { Eye, EyeOff, Mail, User, ArrowRight, UserPlus } from 'lucide-react';
 import { formatAuthError, getPasswordStrength } from '@/lib/authUtils';
 
 interface RegisterFormProps {
@@ -232,8 +232,8 @@ export function RegisterForm({ tenantId }: RegisterFormProps) {
               </div>
             ) : (
               <div className="flex items-center justify-center">
-                Create Account
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <UserPlus className="mr-2 w-4 h-4" />
+                Crear Cuenta
               </div>
             )}
           </Button>

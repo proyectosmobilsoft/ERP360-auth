@@ -1,7 +1,7 @@
 import { useMFA } from '@/hooks/useMFA';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Smartphone, RefreshCw } from 'lucide-react';
+import { KeyRound, RefreshCw, Shield } from 'lucide-react';
 import { formatAuthError } from '@/lib/authUtils';
 
 interface MFAVerifyProps {
@@ -28,14 +28,14 @@ export function MFAVerify({ isOpen, onClose }: MFAVerifyProps) {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 auth-fade-in">
       <div className="tenant-surface rounded-xl shadow-xl p-8 max-w-md w-full mx-4">
         <div className="text-center mb-6">
-          <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-            <Smartphone className="text-tenant-primary w-8 h-8" />
+          <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+            <Shield className="text-green-600 w-8 h-8" />
           </div>
           <h3 className="text-xl font-medium text-tenant-primary mb-2">
-            Two-Factor Authentication
+            Verificación de Seguridad
           </h3>
           <p className="text-tenant-secondary">
-            Enter the 6-digit code from your authenticator app
+            Ingresa el código de 6 dígitos de tu aplicación autenticadora
           </p>
         </div>
 
@@ -101,7 +101,7 @@ export function MFAVerify({ isOpen, onClose }: MFAVerifyProps) {
             <Button
               type="button"
               variant="link"
-              className="text-sm text-tenant-primary hover:text-tenant-primary p-0"
+              className="text-sm text-tenant-primary hover:text-tenant-primary p-0 flex items-center"
               onClick={resendMFACode}
               disabled={isVerifying}
             >

@@ -42,8 +42,8 @@ export function extractTenantId(): string {
     return subdomainTenant;
   }
   
-  // Default to a valid tenant
-  return 'acme-corp';
+  // Default to ERP360 tenant
+  return 'erp360';
 }
 
 export function applyTenantColors(primaryColor: string, secondaryColor: string) {

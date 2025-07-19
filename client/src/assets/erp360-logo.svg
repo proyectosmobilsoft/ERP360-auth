@@ -1,0 +1,20 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="25" fill="url(#gradient)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  
+  <!-- Lightning bolt icon -->
+  <path d="M35 18L25 32H32L28 42L38 28H31L35 18Z" fill="white" stroke="none"/>
+  
+  <!-- Text -->
+  <text x="70" y="25" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="currentColor">ERP</text>
+  <text x="135" y="25" font-family="Inter, sans-serif" font-size="24" font-weight="400" fill="currentColor">360</text>
+  <text x="70" y="45" font-family="Inter, sans-serif" font-size="10" font-weight="400" fill="currentColor" opacity="0.7">ENTERPRISE PLATFORM</text>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+  </defs>
+</svg>

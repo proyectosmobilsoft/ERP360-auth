@@ -1,5 +1,6 @@
 import { useTenant } from '@/hooks/useTenant';
-import { Shield, Users, Smartphone } from 'lucide-react';
+import { Shield, Building2, KeyRound, Zap, Globe, Lock } from 'lucide-react';
+import erp360Logo from '@/assets/erp360-logo.svg';
 
 interface TenantBrandingProps {
   tenantId: string;
@@ -23,7 +24,13 @@ export function TenantBranding({ tenantId }: TenantBrandingProps) {
       {/* Tenant Logo Area */}
       <div className="absolute top-8 left-8 z-10">
         <div className="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
-          {tenant?.logo ? (
+          {tenant?.name === 'ERP360' ? (
+            <img 
+              src={erp360Logo} 
+              alt="ERP360"
+              className="w-48 h-12 object-contain filter brightness-0 invert"
+            />
+          ) : tenant?.logo ? (
             <img 
               src={tenant.logo} 
               alt={tenant.name}
@@ -42,24 +49,34 @@ export function TenantBranding({ tenantId }: TenantBrandingProps) {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center p-12 text-white">
-        <h1 className="text-4xl font-light mb-6">
-          {config.welcomeMessage || 'Secure Enterprise Authentication'}
-        </h1>
+        <div className="flex items-center mb-4">
+          <Zap className="w-10 h-10 mr-3" />
+          <h1 className="text-4xl font-bold">
+            {tenant?.name === 'ERP360' ? 'ERP360' : config.welcomeMessage || 'Secure Enterprise Authentication'}
+          </h1>
+        </div>
         <p className="text-xl text-blue-100 mb-8">
-          Multi-tenant SSO solution with enterprise-grade security features and seamless integration across all your applications.
+          {tenant?.name === 'ERP360' 
+            ? 'Plataforma empresarial completa con autenticación segura, gestión multitenant y integración SSO de nivel empresarial.'
+            : 'Multi-tenant SSO solution with enterprise-grade security features and seamless integration across all your applications.'
+          }
         </p>
-        <div className="flex items-center space-x-6">
-          <div className="flex items-center space-x-2">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="flex items-center space-x-3 bg-white bg-opacity-10 rounded-lg p-3">
             <Shield className="w-6 h-6" />
-            <span>Enterprise Security</span>
+            <span className="text-sm font-medium">Seguridad Empresarial</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <Users className="w-6 h-6" />
-            <span>Multi-Tenant</span>
+          <div className="flex items-center space-x-3 bg-white bg-opacity-10 rounded-lg p-3">
+            <Building2 className="w-6 h-6" />
+            <span className="text-sm font-medium">Multi-Tenant</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <Smartphone className="w-6 h-6" />
-            <span>MFA Support</span>
+          <div className="flex items-center space-x-3 bg-white bg-opacity-10 rounded-lg p-3">
+            <KeyRound className="w-6 h-6" />
+            <span className="text-sm font-medium">Autenticación MFA</span>
+          </div>
+          <div className="flex items-center space-x-3 bg-white bg-opacity-10 rounded-lg p-3">
+            <Globe className="w-6 h-6" />
+            <span className="text-sm font-medium">SSO Integrado</span>
           </div>
         </div>
       </div>

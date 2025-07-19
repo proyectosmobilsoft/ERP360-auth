@@ -6,7 +6,8 @@ import { MFAVerify } from './MFAVerify';
 import { useAuth } from '@/hooks/useAuth';
 import { useTenant } from '@/hooks/useTenant';
 import { Button } from '@/components/ui/button';
-import { Building2 } from 'lucide-react';
+import { Building2, Zap } from 'lucide-react';
+import erp360Logo from '@/assets/erp360-logo.svg';
 
 type AuthMode = 'login' | 'register' | 'forgot';
 
@@ -43,7 +44,15 @@ export function AuthFormContainer({ tenantId, app = 'CRM', module = 'Auth' }: Au
     <div className="w-full max-w-md">
       {/* Mobile Logo */}
       <div className="lg:hidden text-center mb-8">
-        {tenant?.logo ? (
+        {tenant?.name === 'ERP360' ? (
+          <div className="inline-block tenant-primary px-6 py-3 rounded-lg">
+            <img 
+              src={erp360Logo} 
+              alt="ERP360"
+              className="h-8 object-contain filter brightness-0 invert"
+            />
+          </div>
+        ) : tenant?.logo ? (
           <img 
             src={tenant.logo} 
             alt={tenant.name}
